@@ -644,7 +644,7 @@ function ReviewDetails({
     amountWei,
     visible,
   );
-  const { isLoading: isQuoteLoading, fees } = useFeeQuotes(values, visible);
+  const { isLoading: isQuoteLoading, fees, refetch: refetchFees } = useFeeQuotes(values, visible);
 
   const isLoading = isApproveLoading || isQuoteLoading;
 
@@ -659,7 +659,16 @@ function ReviewDetails({
         visible ? 'max-h-screen duration-1000 ease-in' : 'max-h-0 duration-500'
       } overflow-hidden transition-all`}
     >
-      <label className="mt-4 block pl-0.5 text-sm text-gray-600">Transactions</label>
+      <div className="mt-4 flex items-center justify-between">
+        <label className="block pl-0.5 text-sm text-gray-600">Transactions</label>
+        <button
+          type="button"
+          onClick={() => refetchFees()}
+          className="rounded border border-gray-300 px-2 py-0.5 text-xs text-gray-700 hover:bg-gray-100"
+        >
+          Refresh Quotes
+        </button>
+      </div>
       <div className="mt-1.5 space-y-2 break-all rounded border border-gray-400 bg-gray-150 px-2.5 py-2 text-sm">
         {isLoading ? (
           <div className="flex items-center justify-center py-6">

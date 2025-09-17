@@ -1,5 +1,6 @@
 import { useIsSsr } from '@hyperlane-xyz/widgets';
 import '@hyperlane-xyz/widgets/styles.css';
+import '@solana/wallet-adapter-react-ui/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
