@@ -221,7 +221,8 @@ function ChainSelectSection({ isReview }: { isReview: boolean }) {
   }, [values.tokenIndex, values.destination, warpCore]);
 
   const setTokenOnChainChange = (origin: string, destination: string) => {
-    const tokenIndex = getTokenIndexFromChains(warpCore, null, origin, destination);
+    const preferredAddress = config.defaultTokenAddressOrDenom || null;
+    const tokenIndex = getTokenIndexFromChains(warpCore, preferredAddress, origin, destination);
     const token = getTokenByIndex(warpCore, tokenIndex);
     updateQueryParam(WARP_QUERY_PARAMS.TOKEN, token?.addressOrDenom);
     setFieldValue('tokenIndex', tokenIndex);
@@ -762,7 +763,7 @@ function useFormInitialValues(): TransferFormValues {
 
   const tokenIndex = getInitialTokenIndex(
     warpCore,
-    params.get(WARP_QUERY_PARAMS.TOKEN),
+    params.get(WARP_QUERY_PARAMS.TOKEN) || config.defaultTokenAddressOrDenom || null,
     originQuery,
     destinationQuery,
     defaultOriginToken,

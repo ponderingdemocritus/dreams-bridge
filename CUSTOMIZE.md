@@ -34,7 +34,20 @@ The values to describe the app itself (e.g. to WalletConnect) are in `./src/cons
 ### Color Scheme
 
 To update the color scheme, make changes in the Tailwind config file at `./tailwind.config.js`
-To modify just the background color, that can be changed in `./src/consts/app.ts`
+To modify just the background, you have two options:
+
+- Edit `./src/consts/app.ts` and change `BACKGROUND_COLOR` and/or `BACKGROUND_IMAGE`.
+- Or, set env vars (no code change):
+  - `NEXT_PUBLIC_BACKGROUND_COLOR` — any CSS color (e.g. `#0f172a`, `rgb(15 23 42)`, `hsl(...)`).
+  - `NEXT_PUBLIC_BACKGROUND_IMAGE` — any CSS background-image value (e.g. `none`, `url(/backgrounds/your.svg)`, or a `linear-gradient(...)`).
+
+Examples:
+
+```
+# .env
+NEXT_PUBLIC_BACKGROUND_COLOR=#0f172a
+NEXT_PUBLIC_BACKGROUND_IMAGE=linear-gradient(135deg, #111827, #1f2937)
+```
 
 ### Metadata
 
