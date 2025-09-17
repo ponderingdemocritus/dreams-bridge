@@ -7,9 +7,10 @@ export const MAIN_FONT = SpaceGrotesk({
   preload: true,
   fallback: ['sans-serif'],
 });
-export const APP_NAME = 'Hyperlane Warp UI Template';
-export const APP_DESCRIPTION = 'A DApp for Hyperlane Warp Route transfers';
-export const APP_URL = 'hyperlane-warp-template.vercel.app';
+export const APP_NAME = 'Dreams Bridge';
+export const APP_DESCRIPTION = 'Dreams Bridge is a DApp for Hyperlane Warp Route transfers';
+// Public base URL used for Open Graph and wallet metadata
+export const APP_URL = 'https://bridge.daydreams.systems';
 export const BRAND_COLOR = Color.primary['500'];
 
 // Background
